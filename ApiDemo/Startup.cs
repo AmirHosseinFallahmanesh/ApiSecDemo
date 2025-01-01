@@ -1,4 +1,5 @@
 using ApiDemo.Application;
+using ApiDemo.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,7 +40,7 @@ namespace ApiDemo
             }
 
             app.UseHttpsRedirection();
-
+            app.UseMiddleware<AuthMiddleware>();
             app.UseRouting();
 
             app.UseAuthorization();
